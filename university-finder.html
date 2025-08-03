@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html >
+<head>
+  
+  <title>University Finder - EduLinker</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="finder.css" />
+  <script src="university-data.js" defer></script>
+  <script src="finder.js" defer></script>
+</head>
+<body class="bg-gray-900 text-white">
+    <header class="p-4 flex justify-between items-center bg-gray-800 shadow-md">
+        <h1 class="text-2xl font-bold">University Finder</h1>
+        <div class="flex space-x-4">
+          <a href="index.html" class="bg-indigo-600 hover:bg-indigo-700 px-4 py-2 rounded text-white">Home</a>
+         
+          </a>
+        </div>
+      </header>
+
+  <section class="py-12 px-4 max-w-6xl mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-6">Find the Right University</h2>
+
+    <div class="mb-6 text-center">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Search by university name..."
+        class="w-full max-w-md px-4 py-2 rounded text-black"
+      />
+    </div>
+
+    <div id="universityList" class="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+      <!-- Universities will be dynamically loaded here -->
+    </div>
+  </section>
+
+  <footer class="bg-gray-800 text-center py-4">
+    <p>&copy; 2025 EduLinker. All rights reserved.</p>
+  </footer>
+</body>
+</html>

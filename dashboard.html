@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <title>Student Dashboard - EduLinker</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body class="dark text-white">
+
+  <div class="min-h-screen flex flex-col items-center px-6 py-8">
+    <h1 class="text-3xl font-bold mb-6">🎓 Welcome to Your Dashboard</h1>
+
+    <div
+      class="p-6 rounded-lg shadow-lg max-w-3xl w-full space-y-6 text-gray-900 dark:text-white backdrop-blur-lg"
+      style="background-color: rgba(255, 255, 255, 0.2);"
+    >
+
+      <!-- Greeting -->
+      <div class="text-center">
+        <p class="text-lg">Hello, <span id="studentName" class="font-semibold text-blue-600 dark:text-blue-400"></span>!</p>
+        <p>Manage your university applications and track your progress below.</p>
+      </div>
+
+      <!-- Progress Bar -->
+      <section>
+        <h2 class="text-xl font-semibold mb-2">📊 Application Progress</h2>
+        <div class="w-full bg-gray-200 rounded-full dark:bg-gray-700 h-4">
+          <div
+            id="progressBar"
+            class="bg-blue-600 dark:bg-blue-400 h-4 rounded-full transition-all duration-500"
+            style="width: 40%;"
+          ></div>
+        </div>
+        <p id="progressLabel" class="text-sm text-right mt-1">Step 2 of 5</p>
+      </section>
+
+      <!-- Deadlines -->
+      <section>
+        <h2 class="text-xl font-semibold mb-2">🗓 Upcoming Deadlines</h2>
+        <ul class="space-y-1 text-sm">
+          <li>📍 TUT – Applications close: <strong>30 Sept 2025</strong></li>
+          <li>📍 UJ – Applications close: <strong>28 Sept 2025</strong></li>
+          <li>📍 UP – Applications close: <strong>15 Oct 2025</strong></li>
+        </ul>
+      </section>
+
+      <!-- Notifications -->
+      <section>
+        <h2 class="text-xl font-semibold mb-2">🔔 Notifications</h2>
+        <div class="bg-yellow-100 text-yellow-800 p-3 rounded dark:bg-yellow-800 dark:text-white">
+          Don’t forget to upload your documents before the deadline!
+        </div>
+      </section>
+
+      <!-- Document Upload -->
+      <section>
+        <h2 class="text-xl font-semibold mb-2">📤 Upload Documents</h2>
+        <form id="uploadForm" class="space-y-3">
+          <input
+            type="file"
+            id="docFile"
+            class="block w-full text-sm text-gray-700 dark:text-gray-300 file:mr-4 file:py-2 file:px-4 file:border-0 file:rounded-full file:bg-blue-600 file:text-white hover:file:bg-blue-700"
+          />
+          <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">Upload</button>
+          <p id="uploadStatus" class="text-green-600 dark:text-green-400 mt-1 hidden">✅ File uploaded!</p>
+        </form>
+      </section>
+
+      <!-- Application Tracker -->
+      <section>
+        <h2 class="text-xl font-semibold mb-2">📌 Application Status</h2>
+        <ul class="space-y-2 text-sm">
+          <li>✔️ TUT-<span class="bg-yellow-400 text-black px-2 py-1 rounded">Reviewed</span></li>
+          <li>✔️ UJ-<span class="bg-green-600 text-white px-2 py-1 rounded">Accepted</span></li>
+          <li>✔️ UFS-<span class="bg-blue-600 text-white px-2 py-1 rounded">Submitted</span></li>
+        </ul>
+      </section>
+
+      <!-- Achievements -->
+      <section>
+        <h2 class="text-xl font-semibold mb-2">🏆 Your Achievements</h2>
+        <div class="flex flex-wrap gap-4">
+          <div class="bg-gray-800 text-white px-4 py-2 rounded shadow">🎯 Completed Signup</div>
+          <div class="bg-green-700 text-white px-4 py-2 rounded shadow">🏫 First Application Sent</div>
+          <div class="bg-purple-600 text-white px-4 py-2 rounded shadow">📤 Document Uploaded</div>
+        </div>
+      </section>
+
+      <!-- Quick Links -->
+      <section class="grid sm:grid-cols-2 gap-4 mt-6">
+        <a href="universities.html" class="bg-blue-600 text-white px-4 py-3 rounded hover:bg-blue-700">🌍 Explore Universities</a>
+        <a href="index.html" class="bg-green-600 text-white px-4 py-3 rounded hover:bg-green-700">🏠 Back to Home</a>
+      </section>
+
+      <!-- Logout -->
+      <section class="text-center mt-4">
+        <button onclick="logout()" class="text-red-500 hover:underline">Log out</button>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    // Show student name
+    const user = JSON.parse(localStorage.getItem("userAccount"));
+    const nameDisplay = document.getElementById("studentName");
+
+    if (user && user.name) {
+      nameDisplay.textContent = user.name;
+    } else {
+      window.location.href = "login.html";
+    }
+
+    // Simulate progress bar
+    const progressStep = 2;
+    const totalSteps = 5;
+    const progressPercent = (progressStep / totalSteps) * 100;
+    document.getElementById("progressBar").style.width = progressPercent + "%";
+    document.getElementById("progressLabel").innerText = `Step ${progressStep} of ${totalSteps}`;
+
+    // Document upload handler
+    document.getElementById("uploadForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const file = document.getElementById("docFile").files[0];
+      if (file) {
+        document.getElementById("uploadStatus").classList.remove("hidden");
+      }
+    });
+
+    function logout() {
+      localStorage.removeItem("isLoggedIn");
+      window.location.href = "login.html";
+    }
+  </script>
+</body>
+</html>
+

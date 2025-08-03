@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  
+  <title>EduLinker - Apply to Universities</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <!-- Your custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="header">
+    <div class="container mx-auto flex justify-between items-center p-4">
+      <h1 class="text-2xl font-bold text-white">EduLinker</h1>
+      <nav class="space-x-4 text-white text-sm md:text-base">
+        <a href="#features" class="hover:underline">Features</a>
+       
+        <a href="#apply" class="hover:underline">Apply</a>
+        <a href="#forum" class="hover:underline">Forum</a>
+        <a href="contact.html" class="text-white hover:underline">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero-section text-center py-12">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-semibold mb-4">Your Gateway to Higher Education</h2>
+      <p class="text-lg mb-6">Find, Compare, and Apply to Universities with Ease</p>
+      <a href="#apply" class="btn-primary">Get Started</a>
+    </div>
+  </section>
+
+  <section id="features" class="features-section py-12 container mx-auto px-4">
+    <h3 class="text-3xl font-bold text-center mb-8">Features</h3>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="feature-card">
+        <a href="university-finder.html" class="btn-primary">University Finder
+        <h4  class="font-bold text-xl mb-2">University Finder</h4>
+    </a>
+        <p>Search universities by location, tuition, courses, and more.</p>
+      </div>
+      <div class="feature-card">
+        <h4 class="font-bold text-xl mb-2">Smart Application Tracker</h4>
+        <p>Track your application progress and never miss a deadline.</p>
+      </div>
+      <div class="feature-card">
+        <h4 class="font-bold text-xl mb-2">Eligibility Checker</h4>
+        <p>See which universities match your grades and preferences.</p>
+      </div>
+      <div class="feature-card">
+        <h4 class="font-bold text-xl mb-2">Gamified Progress</h4>
+        <p>Earn badges as you complete steps in your university application journey.</p>
+      </div>
+      <div class="feature-card">
+        <h4 class="font-bold text-xl mb-2">Forum / Q&A Section</h4>
+        <p>Ask questions, share advice, and help others on their application journey.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="apply" class="apply-section bg-gray-100 dark:bg-gray-800 py-12">
+    <div class="container mx-auto text-center px-4">
+      <h3 class="text-3xl font-bold mb-6">Start Your Application</h3>
+      <p class="mb-4">Sign up and begin your journey to the university of your dreams.</p>
+      <a href="signup.html" class="btn-primary">Create Account</a>
+      <a href="login.html" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition mt-4 block">
+        Login
+      </a>
+    </div>
+  </section>
+
+  <section id="forum" class="forum-section py-12 container mx-auto px-4">
+    <h3 class="text-3xl font-bold text-center mb-8">Student Forum</h3>
+    <p class="text-center mb-4">Join the discussion and get help from fellow applicants.</p>
+    <div class="forum-placeholder">
+      <p class="text-gray-600 dark:text-gray-300">Coming Soon: Q&A, badges for helping, and upvoting answers!</p>
+    </div>
+  </section>
+
+  <footer id="contact" class="footer bg-blue-900 text-white py-6 mt-12">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2025 EduLinker. All rights reserved.</p>
+    </div>
+  </footer>
+  <script>
+    const getStartedBtn = document.getElementById("getStartedBtn");
+  
+    getStartedBtn.addEventListener("click", () => {
+      const user = localStorage.getItem("userAccount");
+      if (user) {
+        window.location.href = "dashboard.html"; // Already signed up
+      } else {
+        window.location.href = "signup.html"; // New user
+      }
+    });
+  </script>
+  
+</body>
+</html>

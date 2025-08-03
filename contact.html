@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html >
+<head>
+  
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex items-center justify-center p-6">
+  <div class="bg-gray-800 rounded-lg p-8 w-full max-w-lg shadow-lg">
+    <h2 class="text-3xl font-bold mb-6 text-center">Contact Us</h2>
+    <form action="https://formsubmit.co/siphiwesiyamthanda25@gmail.com" method="POST" class="space-y-4">
+      <!-- replace with your email above -->
+      
+      <div>
+        <label for="name" class="block mb-1">Name</label>
+        <input type="text" id="name" name="name" required
+          class="w-full px-4 py-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"/>
+      </div>
+      
+      <div>
+        <label for="email" class="block mb-1">Email</label>
+        <input type="email" id="email" name="email" required
+          class="w-full px-4 py-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"/>
+      </div>
+      <input type="hidden" name="_captcha" value="false">
+      <div>
+        <label for="message" class="block mb-1">Message</label>
+        <textarea id="message" name="message" rows="5" required
+          class="w-full px-4 py-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+      </div>
+      <input type="hidden" name="_captcha" value="false">
+      <button type="submit"
+        class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-4 rounded">
+        Send Message
+      </button>
+    </form>
+    <div class="text-center mt-6">
+        <a href="index.html" class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded">
+          Back to Home
+        </a>
+      </div>
+  </div>
+</body>
+</html>
